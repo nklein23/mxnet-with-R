@@ -11,6 +11,7 @@
 *.DS_Store
 *.Rproj
 *.Rhistory
+*.gz
 
 .Rproj.user
 .Rproj.user/
