@@ -3,7 +3,7 @@
 ################################################################################ 
 
 # Set your working directory to load the data
-setwd("C:/Users/Niklas/mxnet-tutorials-in-R/data")
+setwd("../mxnet-tutorials-in-R/data")
 
 # Load the RData files  
 load("Train.RData")
