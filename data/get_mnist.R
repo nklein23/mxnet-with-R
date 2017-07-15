@@ -6,7 +6,7 @@
 # and convert it into RData files, which can be easily read via load().
 require("darch")
 # Set your working directory
-setwd("C:/Users/Niklas/mxnet-tutorials-in-R/data/")
+setwd("C:../mxnet-tutorials-in-R/data/")
 darch::provideMNIST(folder = "C:/Users/Niklas/mxnet-tutorials-in-R/data/", 
   download = TRUE)
 
