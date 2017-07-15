@@ -1,41 +1,37 @@
-*.aux
-*.fdb_latexmk
-*.fls
-*.log
-*.nav
-*.out
-*.snm
-*.toc
-*.vrb
-*.synctex.gz
-*.DS_Store
-*.Rproj
-*.Rhistory
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
 *.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
 
-.Rproj.user
-.Rproj.user/
-cache/
-figure/
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
 
-slides*.pdf
-slides*.tex
-
-ueb_*.pdf
-ueb_*.tex
-
-tut_*.pdf
-tut_*.tex
-
-
-######################################################
-# nicht sicher, ob die bleiben müssen, eher auch raus:
-beamer*.sty
-folien-*.pdf
-ue.pdf
-
-Tutorium*.pdf
-*Tutorium*.pdf
-cim-ueb-*.pdf
-Algorithmen.pdf
-Ch*-*.pdf
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
