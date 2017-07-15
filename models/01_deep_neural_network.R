@@ -3,6 +3,5 @@
 ################################################################################
 
 # Set your working directory to save the results from the computations
-
 setwd("../mxnet-tutorials-in-R/results")
 
