@@ -1,7 +1,12 @@
 ################################################################################ 
 ################################ Preprocessing #################################
 ################################################################################ 
-setwd("C:/Users/Niklas/mxnet-tutorials-in-R/data")
+
+# Set your working directory to load the data
+
+setwd("../mxnet-tutorials-in-R/data")
+
+# 
 train.x = t(data.matrix(trainData))
 train.y = numeric(length = dim(trainLabels)[1])
 
