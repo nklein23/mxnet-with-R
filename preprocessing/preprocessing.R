@@ -19,7 +19,7 @@ dim(trainData)
 
 # Currently, the labels are categorical/one-hot encoded.
 trainLabels[0:6, 0:9]
-# We assign true labels, simply because I don't like one-hot. 
+# Personally, I prefer true class labels, i.e. y element {0, 1,...,9}: 
 trainLabels_temp = numeric(length = dim(trainLabels)[1])
 for(i in 1:9){
   trainLabels_temp = trainLabels_temp + i*trainLabels[, i]
@@ -30,7 +30,7 @@ rm(trainLabels_temp)
 # As we can see, the results match those from the one-hot encoding:
 head(trainLabels)
 
-## Test data:
+## Same procedure for the test data:
 testData = t(testData)
 testLabels_temp = numeric(length = dim(testLabels)[1])
 for(i in 1:9){
