@@ -62,7 +62,7 @@ simpleNetError$variable = factor(simpleNetError$variable)
 
 ggplot(data = simpleNetError, aes(x = epoch, y = value, colour = variable)) +
   geom_line() +
-  scale_y_continuous(name = "Misclassification", limits = c(0, 0.2)) + 
+  scale_y_continuous(name = "misclassification", limits = c(0, 0.2)) + 
   scale_x_continuous(labels = function (x) floor(x), 
     name = "epochs") + 
   labs(colour = "")
