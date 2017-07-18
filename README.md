@@ -1,1 +1,1 @@
-# mxnetR
+# mxnet examples for people with intermediate R and deeplearning background
