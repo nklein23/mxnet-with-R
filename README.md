@@ -23,6 +23,7 @@ note that you have to edit the working directory in all files.
 | 03            | up to come          | 3 layer CNN                                         |
 
 \* models were executed on mainstream CPU with 4 cores/4 threads @ 3.9 GHZ
+
 \** as of july 2017, mxnet does not offer GPU implementation for R on Windows
 
 ## model 01 results:
