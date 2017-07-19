@@ -13,7 +13,7 @@
 2. run preprocessing/conversion.R
 3. run models/<any file of your choice>
 
-### You have to edit the working directory in all files.
+### you have to edit the working directory in all files.
 
 
 | Model         | Time to execute* ** | Type                                                |
@@ -25,8 +25,14 @@
 \* models were executed on mainstream CPU with 4 cores/4 threads @ 3.9 GHZ
 \** as of july 2017, mxnet does not offer GPU implementation for R on Windows
 
+## model 01 results:
+
 ![alt text](https://github.com/NiklasDL/mxnet-tutorials-in-R/blob/master/results/simpleNetErrors.png?raw=true)
+
+## model 02 results:
 
 ![alt text](https://github.com/NiklasDL/mxnet-tutorials-in-R/blob/master/results/deepNetTrainError.png?raw=true)
 
 ![alt text](https://github.com/NiklasDL/mxnet-tutorials-in-R/blob/master/results/deepNetTestError.png?raw=true)
+
+## model 03 results:
