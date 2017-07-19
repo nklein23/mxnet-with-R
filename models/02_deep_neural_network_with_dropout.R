@@ -17,7 +17,6 @@ resultsTrain = data.frame(matrix(ncol = length(batchSize),
 resultsTest = data.frame(matrix(ncol = length(batchSize), 
   nrow = epochs))
 
-start = Sys.time() 
 for(i in seq_along(batchSize)){
   
   print(paste0("Batchsize iteration ", i, " of ", length(batchSize)))
@@ -63,9 +62,6 @@ for(i in seq_along(batchSize)){
     batchSize[i], sep="")
   
 }
-end = Sys.time()
-time = end - start
-time
 
 ################################################################################ 
 ############################ Plot Training Errors ##############################
@@ -83,10 +79,10 @@ nnBenchmarkTrainError$variable = factor(nnBenchmarkTrainError$variable)
 
 ggplot(data = nnBenchmarkTrainError, aes(x = epoch, y = value, colour = variable)) +
   geom_line() +
-  scale_y_continuous(name = "train error", limits = c(0, 1)) + 
+  scale_y_continuous(name = "train error", limits = c(0, 0.3)) + 
   scale_x_continuous(labels = function (x) floor(x), 
     name = "epochs") + 
-  labs(colour = "Batchsize")
+  labs(colour = "")
 
 ################################################################################ 
 ############################## Plot Test Errors ################################
@@ -104,8 +100,8 @@ nnBenchmarkTestError$variable = factor(nnBenchmarkTestError$variable)
 
 ggplot(data = nnBenchmarkTestError, aes(x = epoch, y = value, colour = variable)) +
   geom_line() +
-  scale_y_continuous(name = "test error", limits = c(0, 0.5)) + 
+  scale_y_continuous(name = "test error", limits = c(0, 0.2)) + 
   scale_x_continuous(labels = function (x) floor(x), 
     name = "epochs") + 
-  labs(colour = "Batchsize")
+  labs(colour = "")
 
