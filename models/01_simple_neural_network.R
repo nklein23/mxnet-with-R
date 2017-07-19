@@ -25,7 +25,7 @@ softmax = mx.symbol.SoftmaxOutput(fc3, name = "sm")
 devices = mx.cpu()
 mx.set.seed(1337)
 logger = mx.metric.logger$new()
-  
+
 model = mx.model.FeedForward.create(softmax,
   X = trainData, y = trainLabels,
   eval.data = list(data = testData, label = testLabels),

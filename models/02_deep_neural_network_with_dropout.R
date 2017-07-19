@@ -9,7 +9,7 @@ require("mxnet")
 require("ggplot2")
 require("reshape2")
 
-epochs = 25
+epochs = 50
 batchSize = c(10, 50, 100, 200)
 
 resultsTrain = data.frame(matrix(ncol = length(batchSize),
@@ -17,22 +17,23 @@ resultsTrain = data.frame(matrix(ncol = length(batchSize),
 resultsTest = data.frame(matrix(ncol = length(batchSize), 
   nrow = epochs))
 
+start = Sys.time() 
 for(i in seq_along(batchSize)){
   
   print(paste0("Batchsize iteration ", i, " of ", length(batchSize)))
   
   data = mx.symbol.Variable("data")
-  drop0 = mx.symbol.Dropout(data = data, p = 0.4)
-  fc1 = mx.symbol.FullyConnected(drop0, name = "fc1", num_hidden = 256)
-  act1 = mx.symbol.Activation(fc1, name = "relu1", act_type = "relu")
-  drop1 = mx.symbol.Dropout(data = act1, p = 0.2)
-  fc2 = mx.symbol.FullyConnected(drop1, name = "fc2", num_hidden = 128)
-  act2 = mx.symbol.Activation(fc2, name = "relu2", act_type = "relu")
+  drop0 = mx.symbol.Dropout(data, p = 0.4)
+  fc1 = mx.symbol.FullyConnected(drop0, "fc1", num_hidden = 256)
+  act1 = mx.symbol.Activation(fc1, "relu1", act_type = "relu")
+  drop1 = mx.symbol.Dropout(act1, p = 0.2)
+  fc2 = mx.symbol.FullyConnected(drop1, "fc2", num_hidden = 128)
+  act2 = mx.symbol.Activation(fc2, "relu2", act_type = "relu")
   drop2 = mx.symbol.Dropout(act2, p = 0.2)
-  fc3 = mx.symbol.FullyConnected(act2, name = "fc3", num_hidden = 64)
-  act3 = mx.symbol.Activation(fc3, name = "relu3", act_type = "relu")
+  fc3 = mx.symbol.FullyConnected(act2, "fc3", num_hidden = 64)
+  act3 = mx.symbol.Activation(fc3, "relu3", act_type = "relu")
   drop3 = mx.symbol.Dropout(act3, p = 0.2)
-  fc4 = mx.symbol.FullyConnected(act3, name = "fc4", num_hidden = 10)
+  fc4 = mx.symbol.FullyConnected(act3, "fc4", num_hidden = 10)
   softmax = mx.symbol.SoftmaxOutput(fc4, name = "sm")
   
   devices = mx.cpu()
@@ -62,22 +63,25 @@ for(i in seq_along(batchSize)){
     batchSize[i], sep="")
   
 }
+end = Sys.time()
+time = end - start
+time
 
 ################################################################################ 
 ############################ Plot Training Errors ##############################
 ################################################################################ 
 
-nnTrainError = as.data.frame(cbind(1:dim(resultsTrain)[1], resultsTrain))
-colnames(nnTrainError)[1] = "epoch"
-nnTrainError = melt(nnTrainError, id = "epoch")
+nnBenchmarkTrainError = as.data.frame(cbind(1:dim(resultsTrain)[1], resultsTrain))
+colnames(nnBenchmarkTrainError)[1] = "epoch"
+nnBenchmarkTrainError = melt(nnBenchmarkTrainError, id = "epoch")
 
-write.csv(nnTrainError, file = "nnTrainError", row.names = FALSE, quote = FALSE)
+write.csv(nnBenchmarkTrainError, file = "nnBenchmarkTrainError", row.names = FALSE, quote = FALSE)
 
-nnTrainError = read.csv("nnTrainError", header = TRUE)
+nnBenchmarkTrainError = read.csv("nnBenchmarkTrainError", header = TRUE)
 options(scipen=999)
-nnTrainError$variable = factor(nnTrainError$variable)
+nnBenchmarkTrainError$variable = factor(nnBenchmarkTrainError$variable)
 
-ggplot(data = nnTrainError, aes(x = epoch, y = value, colour = variable)) +
+ggplot(data = nnBenchmarkTrainError, aes(x = epoch, y = value, colour = variable)) +
   geom_line() +
   scale_y_continuous(name = "train error", limits = c(0, 1)) + 
   scale_x_continuous(labels = function (x) floor(x), 
@@ -85,20 +89,20 @@ ggplot(data = nnTrainError, aes(x = epoch, y = value, colour = variable)) +
   labs(colour = "Batchsize")
 
 ################################################################################ 
-############################## Plot Test## Errors ##############################
+############################## Plot Test Errors ################################
 ################################################################################ 
 
-nnTestError = as.data.frame(cbind(1:dim(resultsTest)[1], resultsTest))
-colnames(nnTestError)[1] = "epoch"
-nnTestError = melt(nnTestError, id = "epoch")
+nnBenchmarkTestError = as.data.frame(cbind(1:dim(resultsTest)[1], resultsTest))
+colnames(nnBenchmarkTestError)[1] = "epoch"
+nnBenchmarkTestError = melt(nnBenchmarkTestError, id = "epoch")
 
-write.csv(nnTestError, file = "nnTestError", row.names = FALSE, quote = FALSE)
+write.csv(nnBenchmarkTestError, file = "nnBenchmarkTestError", row.names = FALSE, quote = FALSE)
 
-nnTestError = read.csv("nnTestError", header = TRUE)
+nnBenchmarkTestError = read.csv("nnBenchmarkTestError", header = TRUE)
 options(scipen=999)
-nnTestError$variable = factor(nnTestError$variable)
+nnBenchmarkTestError$variable = factor(nnBenchmarkTestError$variable)
 
-ggplot(data = nnTestError, aes(x = epoch, y = value, colour = variable)) +
+ggplot(data = nnBenchmarkTestError, aes(x = epoch, y = value, colour = variable)) +
   geom_line() +
   scale_y_continuous(name = "test error", limits = c(0, 0.5)) + 
   scale_x_continuous(labels = function (x) floor(x), 
