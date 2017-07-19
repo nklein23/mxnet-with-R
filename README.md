@@ -22,4 +22,4 @@
 | 02            | up to come          | 4 neural nets with 3 layers (batch size benchmark)  |
 | 03            | up to come          | 3 layer CNN                                         |
 
-* models were executed on mainstream CPU with 4 cores/4 threads @ 3.9 GHZ
+\* models were executed on mainstream CPU with 4 cores/4 threads @ 3.9 GHZ
