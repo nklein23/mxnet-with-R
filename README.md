@@ -17,8 +17,8 @@
 
 
 
-| Model         | Time to execute     | Type                                          |
-| ------------- |:-------------------:|:---------------------------------------------:|  
-| 01            | roughly 1.3 min     | neural net with 3 layer                       |
-| 02            | up to come     | neural net with 3 layer batch size benchmark  |
-| 03            | up to come     | 3 layer CNN                                   |
+| Model         | Time to execute     | Type                                                |
+| ------------- |:-------------------:|:---------------------------------------------------:|  
+| 01            | roughly 1.3 min     | single neural net with 3 layers                     |
+| 02            | up to come          | 4 neural nets with 3 layers (batch size benchmark)  |
+| 03            | up to come          | 3 layer CNN                                         |
