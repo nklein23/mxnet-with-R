@@ -13,7 +13,7 @@
 2. run preprocessing/conversion.R
 3. run models/<any file of your choice>
 
-### you have to edit the working directory in all files.
+note that you have to edit the working directory in all files.
 
 
 | Model         | Time to execute* ** | Type                                                |
