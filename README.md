@@ -1,5 +1,5 @@
 # mxnet examples for people with intermediate R and deeplearning knowledge.
-# note that I do not intend to find the best model for a given problem, the purpose of this project is simply to give you an easy access to mxnet and its functionality.
+## note that I do not intend to find the best model for a given problem, the purpose of this project is simply to give you an easy access to mxnet and its functionality.
 
 ## dependencies:
 
