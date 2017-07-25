@@ -16,26 +16,17 @@ results = data.frame(matrix(ncol = 2, nrow = epochs))
 
 data = mx.symbol.Variable('data')
 # first conv
-conv1 = mx.symbol.Convolution(data = data, 
-  kernel = c(5, 5), num_filter = 30)
-act1 = mx.symbol.Activation(data = conv1, 
-  act_type = "relu")
-pool1 = mx.symbol.Pooling(data = act1, 
-  pool_type = "max", kernel = c(2, 2), stride = c(2, 2))
+conv1 = mx.symbol.Convolution(data = data, kernel = c(5, 5), num_filter = 30)
+act1 = mx.symbol.Activation(data = conv1, act_type = "relu")
+pool1 = mx.symbol.Pooling(data = act1, pool_type = "max", kernel = c(2, 2), stride = c(2, 2))
 # second conv
-conv2 = mx.symbol.Convolution(data = pool1, 
-  kernel = c(5, 5), num_filter = 30)
-act2 = mx.symbol.Activation(data = conv2, 
-  act_type = "relu")
-pool2 = mx.symbol.Pooling(data = act2, 
-  pool_type = "max", kernel = c(2, 2), stride = c(2, 2))
+conv2 = mx.symbol.Convolution(data = pool1,  kernel = c(5, 5), num_filter = 30)
+act2 = mx.symbol.Activation(data = conv2, act_type = "relu")
+pool2 = mx.symbol.Pooling(data = act2, pool_type = "max", kernel = c(2, 2), stride = c(2, 2))
 # third conv
-conv3 = mx.symbol.Convolution(data = pool2, 
-  kernel = c(3, 3), num_filter = 30)
-act3 = mx.symbol.Activation(data = conv3, 
-  act_type = "relu")
-pool3 = mx.symbol.Pooling(data = act3, 
-  pool_type = "max", kernel = c(2, 2), stride = c(2, 2))
+conv3 = mx.symbol.Convolution(data = pool2, kernel = c(3, 3), num_filter = 30)
+act3 = mx.symbol.Activation(data = conv3, act_type = "relu")
+pool3 = mx.symbol.Pooling(data = act3, pool_type = "max", kernel = c(2, 2), stride = c(2, 2))
 
 flatten = mx.symbol.Flatten(data = pool3)
 
@@ -46,7 +37,6 @@ act5 = mx.symbol.Activation(data = fc2, act_type = "relu")
 fc3 = mx.symbol.FullyConnected(data = act5, num_hidden = 10)
 softmax = mx.symbol.SoftmaxOutput(data = fc3)
 
-
 dim(trainData) = c(28, 28, 1, ncol(trainData))
 dim(testData) = c(28, 28, 1, ncol(testData))
 
@@ -54,7 +44,6 @@ mx.set.seed(1337)
 logger = mx.metric.logger$new()
 devices = mx.cpu()
 
-start.time <- Sys.time()
 model = mx.model.FeedForward.create(softmax,
   X = trainData, y = trainLabels,
   eval.data = list(data = testData, label = testLabels),
@@ -67,9 +56,6 @@ model = mx.model.FeedForward.create(softmax,
   initializer = mx.init.uniform(0.07),
   eval.metric = mx.metric.accuracy,
   epoch.end.callback = mx.callback.log.train.metric(5, logger))
-end.time <- Sys.time()
-time.taken <- end.time - start.time
-time.taken
 
 results[1] = as.numeric(lapply(logger$train, function(x) 1-x))
 colnames(results)[1] = paste("Training Error")
