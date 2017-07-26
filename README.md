@@ -27,8 +27,8 @@ note that you have to edit the working directory in all files.
 \* models were executed on mainstream CPU with 4 cores/4 threads @ 3.9 GHZ
 
 Up to come:
-- autoencoder & lstm until the end of August
-- image segmentation until the end of October
+- autoencoder & LSTM until the end of August
+- image segmentation model until the end of October
 
 ## model 01 results:
 
