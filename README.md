@@ -23,6 +23,7 @@ note that you have to edit the working directory in all files.
 | 01            | roughly 1.3 min     | very simple neural network with 3 layers            | 0.9784 @ 50 epochs                     |
 | 02            | roughly 43.5 min    | 4 neural nets with 4 layers + dropout (benchmark)   | best model yields 0.9793 @ 50 epochs   |
 | 03            | roughly 13.5 min    | CNN with 3 conv/pooling + 3 dense layers            | 0.9862 accuracy @ 20 epochs            | 
+| 04		| roughly 2 min	      | Denoising Autoencoder				    | Judge with your eyes (image below)     |
 
 \* models were executed on mainstream CPU with 4 cores/4 threads @ 3.9 GHZ
 
@@ -41,3 +42,7 @@ I'm planing to add more models in the future (autoencoder, lstms, segmentation m
 ## model 03 results:
 
 ![alt text](https://github.com/NiklasDL/mxnet-tutorials-in-R/blob/master/results/cnnError.png?raw=true)
+
+## model 04 results for arbitrary digits (top row shows original digits, intermediate row noised images used for training and bottom row prediction):
+
+![alt text](https://github.com/NiklasDL/mxnet-tutorials-in-R/blob/master/results/denoising_autoencoder.png?raw=true)
