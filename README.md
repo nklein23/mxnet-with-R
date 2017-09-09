@@ -27,7 +27,7 @@ note that you have to edit the working directory in all files.
 
 \* models were executed on mainstream CPU with 4 cores/4 threads @ 3.9 GHZ
 
-I'm planing to add more models in the future (lstms, image segmentation models)
+I'm planing to add more models in the future (RNN/lstm, image segmentation models)
 
 ## model 01 results:
 
