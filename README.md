@@ -14,7 +14,7 @@ note that I do not intend to find the best model for a given problem, the purpos
 2. run preprocessing/conversion.R
 3. run models/<any file of your choice>
 
-note that you have to edit the working directory in all files.
+note that you have to edit directories in some files.
 
 ## model overview
 
