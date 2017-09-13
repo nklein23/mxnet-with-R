@@ -14,7 +14,7 @@ the purpose of this repo is simply to give you an easy access to mxnet and its a
 2. run preprocessing/conversion.R
 3. run models/
 
-note that you have to edit directories in some files
+note that you have to edit directories in some files (to load data or save results)
 
 ## model overview
 
