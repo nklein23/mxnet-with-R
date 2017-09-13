@@ -1,4 +1,4 @@
-# mxnet examples for people with intermediate R and deeplearning knowledge.
+# mxnet examples in R 
 the purpose of this repo is simply to give you an easy access to mxnet and its api
 
 ## dependencies:
@@ -12,7 +12,7 @@ the purpose of this repo is simply to give you an easy access to mxnet and its a
 
 1. run preprocessing/get_mnist.R
 2. run preprocessing/conversion.R
-3. run models/<any file of your choice>
+3. run models/
 
 note that you have to edit directories in some files
 
@@ -20,9 +20,9 @@ note that you have to edit directories in some files
 
 | Model         | Time to execute*    | Type                                                |
 | ------------- |:-------------------:|:---------------------------------------------------:|
-| 01            | roughly 1.3 min     | very simple neural network with 3 layers            |
-| 02            | roughly 43.5 min    | 4 neural nets with dropout (batchsize benchmark)    |
-| 03            | roughly 13.5 min    | CNN with 3 conv/pooling + 3 dense layers            | 
+| 01            | roughly 1.3 min     | very simple (dense) network with 3 layers           |
+| 02            | roughly 43.5 min    | 4 dense networks with dropout (batchsize benchmark  |
+| 03            | roughly 13.5 min    | CNN with 3 conv + 3 dense layers                    | 
 | 04		| roughly 2 min	      | Denoising Autoencoder				    |
 
 \* models were executed on mainstream CPU with 4 cores/4 threads @ 3.9 GHZ
