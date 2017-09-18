@@ -1,4 +1,4 @@
-# mxnet examples in R 
+# mxnet examples with R 
 the purpose of this repo is simply to give you an easy access to mxnet and its api
 
 ## dependencies:
