@@ -83,7 +83,7 @@ output = mx.symbol.LinearRegressionOutput(act2)
 #### Define model's hyperparameters ####
 ########################################
 
-# MXNet follows a 'colmajor philosophy' (what ever that means), thus it 
+# MXNet follows a 'colmajor philosophy' (for whatever reason), thus it 
 # is  recommended to transpose the data before feeding it into the model.
 noised_train_data = t(noised_train_data)
 noised_test_data = t(noised_test_data)

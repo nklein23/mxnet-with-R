@@ -71,7 +71,7 @@ softmax = mx.symbol.SoftmaxOutput(fc3, name = 'sm')
 #### Define model's hyperparameters ####
 ########################################
 
-# MXNet follows a 'colmajor philosophy' (what ever that means), thus it 
+# MXNet follows a 'colmajor philosophy' (for whatever reason), thus it 
 # is  recommended to transpose the data before feeding it into the model.
 trainData = t(trainData)
 testData = t(testData)
