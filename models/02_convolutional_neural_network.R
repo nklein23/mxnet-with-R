@@ -118,7 +118,7 @@ model = mx.model.FeedForward.create(softmax,
 ####### Some fancy visualizations ######
 ########################################
 
-# Fill the results data frame with the.
+# Extract the training results.
 results[1] = as.numeric(lapply(logger$train, function(x) 1 - x))
 colnames(results)[1] = paste("Train")
 
