@@ -113,4 +113,7 @@ colnames(results)[2] = paste("Test")
 # Load and call the visualization function.
 get_vis_fun = paste(dirname(getwd()), 'utils', 'visualize_results.R', sep = '/')
 source(get_vis_fun)
-visualize_results(results, 'Misclassification rate', 1)
+visualize_results(my_training_results = results, 
+                  custom_string = 'Misclassification rate', 
+                  my_ylim = 1)
+

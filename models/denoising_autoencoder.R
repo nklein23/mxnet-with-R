@@ -112,4 +112,3 @@ my_pred = predict(model, noised_test_data)
 
 # visualize the denoised predictions
 vis_random_data(t(my_pred), 4, my_seed = 1337)
-
