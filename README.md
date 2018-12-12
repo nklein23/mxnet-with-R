@@ -1,5 +1,6 @@
 # Simple MXNet examples with R 
-The purpose of this repository is to give you an easy access to MXNet and its API with R. MXNet is versatile and fast, unfortunately it has a very poor documentation for the R package. 
+
+The purpose of this repository is to provide an easy access to the R interface of MXNet. 
 
 ## Dependencies:
 
