@@ -1,9 +1,9 @@
 # Simple MXNet examples with R 
-The purpose of this repo is to give you an easy access to MXNet and its API with R.
+The purpose of this repository is to give you an easy access to MXNet and its API with R. MXNet is versatile and fast, unfortunately it has a very poor documentation for the R package. 
 
 ## Dependencies:
 
-* mxnet
+* mxnet (cpu or gpu)
 * devtools
 * darch
 * ggplot2
@@ -11,6 +11,6 @@ The purpose of this repo is to give you an easy access to MXNet and its API with
 
 ## To use the code:
 
-1. run requirements.R, it will install mxnet (cpu), devtools, darch, ggplot2 and reshape2 (each package only if it is are not already installed)
+1. run requirements.R, it will install all dependencies (each of them only if it is not already installed)
 2. run any file from models/
 
