@@ -4,7 +4,7 @@ noise_data = function(my_data, noise_factor) {
   ##  
   ## Args:
   ##   my_data (data.frame): The raw data.
-  ##   noise_factor (int): A float between 0 and 1.
+  ##   noise_factor (int): A float between 0 and 1 describing how much noise we want to add.
   ##
   ## Returns:
   ##   my_data_noised (data.frame): The noised data.

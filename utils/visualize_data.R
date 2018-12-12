@@ -4,7 +4,7 @@ vis_random_data = function(my_data, num_plots, my_seed) {
   ##  
   ## Args:
   ##   my_data (data.frame): The raw data.
-  ##   num_plots (int): The number of images you would like to plot.
+  ##   num_plots (int): The amount of images you would like to plot.
   ##   my_seed (int): A seed for reproducible plots.
   ##
   ## Returns:

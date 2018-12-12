@@ -7,7 +7,7 @@ visualize_results = function(my_training_results, custom_string, my_ylim) {
   ##                                     validation accuracy, or the missclassification rate.
   ##                                     Must have two columns 'Train' and 'Test'.
   ##   custom_string (string): A custom string to be shown on the y-axis of the plot.
-  ##   my_ylim (numeric): range of the y-axis, from 0 - my_ylim. 
+  ##   my_ylim (numeric): Range of the y-axis, from 0 - my_ylim. 
   ##
   ## Returns:
   ##   A ggplot2 object.
