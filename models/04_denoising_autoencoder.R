@@ -9,6 +9,9 @@ require("reshape2")
 rm(trainLabels)
 rm(testLabels)
 
+trainData = t(trainData)
+testData = t(testData)
+
 # set hyperparameter
 epochs = 20
 batchSize = 64
@@ -56,7 +59,7 @@ for(i in 1:plots){
 ################################################################################
 data = mx.symbol.Variable("data")
 
-encoder = mx.symbol.FullyConnected(data, num_hidden = code)
+encoder = mx.symbol.FullyConnected(data, num_hidden = 64)
 decoder = mx.symbol.FullyConnected(encoder, num_hidden = 784)
 activation2 = mx.symbol.Activation(decoder, act_type = "sigmoid")
 output = mx.symbol.LinearRegressionOutput(activation2)
