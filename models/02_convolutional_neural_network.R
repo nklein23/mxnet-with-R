@@ -89,11 +89,11 @@ softmax = mx.symbol.SoftmaxOutput(data = fc3)
 trainData = t(trainData)
 testData = t(testData)
 
-# reshape the data to fit into the cnn
+# Reshape the data to fit into the cnn.
 dim(trainData) = c(28, 28, 1, ncol(trainData))
 dim(testData) = c(28, 28, 1, ncol(testData))
 
-# Set the number of epochs we want to train the model .
+# Set the number of epochs we want to train the model.
 num_epochs = 5
 my_batchsize = 32
 
