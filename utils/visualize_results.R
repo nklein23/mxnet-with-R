@@ -36,3 +36,4 @@ visualize_results = function(my_training_results, custom_string, my_ylim) {
     theme_bw()
   
 }
+

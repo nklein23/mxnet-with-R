@@ -17,3 +17,4 @@ to_categorical = function(my_data_point) {
   my_data_point = which(my_data_point == 1) - 1
   
 }
+

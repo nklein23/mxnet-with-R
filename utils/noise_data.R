@@ -22,5 +22,6 @@ noise_data = function(my_data, noise_factor) {
   
   # Return this.
   return(my_data_noised)
-
+  
 }
+

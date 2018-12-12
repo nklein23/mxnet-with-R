@@ -31,5 +31,8 @@ vis_random_data = function(my_data, num_plots, my_seed) {
     truth_mat = matrix(truth, nrow = 28, ncol = 28, byrow = TRUE)
     truth_mat = apply(truth_mat, 2 , rev)
     image(t(truth_mat), axes = FALSE, col = grey(seq(from = 0, to = 1, length = 255)))
+    
   }
+  
 }
+

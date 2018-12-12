@@ -36,4 +36,6 @@ get_mnist = function(my_data_dir) {
     print('The MNIST data are already in your folder.')
     
   }
+  
 }
+
