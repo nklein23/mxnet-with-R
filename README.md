@@ -11,6 +11,6 @@ The purpose of this repo is to give you an easy access to MXNet and its API with
 
 ## To use the code:
 
-1. run requirements.R, it will install mxnet (cpu), devtools, darch, ggplot2 and reshape2 (only if they are not installed)
+1. run requirements.R, it will install mxnet (cpu), devtools, darch, ggplot2 and reshape2 (each package only if it is are not already installed)
 2. run any file from models/
 
