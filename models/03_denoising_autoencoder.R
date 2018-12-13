@@ -17,10 +17,6 @@ get_mnist(my_data_dir)
 #### Load and noise the input data #####
 ########################################
 
-# Load the preprocessing function.
-preprocessing_fun = paste(dirname(getwd()), 'utils', 'to_categorical.R', sep = '/')
-source(preprocessing_fun)
-
 # Create categorical labels for the train data.
 load(paste(my_data_dir, 'train.RData', sep = ''))
 
@@ -31,16 +27,16 @@ load(paste(my_data_dir, 'test.RData', sep = ''))
 rm(list = c('trainLabels', 'testLabels'))
 
 # Plot a few images from the test data.
-vis_fun = paste(dirname(getwd()), 'utils', 'vis_random_data.R', sep = '/')
-source(vis_fun)
-vis_random_data(testData, 4, my_seed = 1337)
+vis_random_data = paste(dirname(getwd()), 'utils', 'vis_random_data.R', sep = '/')
+source(vis_random_data)
+vis_random_data(testData, 16, my_seed = 1)
 
 # Put some noise on the train and test data and plot it again
 noise_fun = paste(dirname(getwd()), 'utils', 'noise_data.R', sep = '/')
 source(noise_fun)
 noised_train_data = noise_data(trainData, 0.5)
 noised_test_data = noise_data(testData, 0.5)
-vis_random_data(noised_test_data, 4, my_seed = 1337)
+vis_random_data(noised_test_data, 16, my_seed = 1)
 
 
 ########################################
@@ -111,5 +107,5 @@ model = mx.model.FeedForward.create(output,
 my_pred = predict(model, noised_test_data)
 
 # visualize the denoised predictions
-vis_random_data(t(my_pred), 4, my_seed = 1337)
+vis_random_data(t(my_pred), 16, my_seed = 1)
 

@@ -3,8 +3,8 @@
 ########################################
 
 # Load the get_mnist function.
-get_mnist_fun = paste(dirname(getwd()), 'utils', 'get_mnist.R', sep = '/')
-source(get_mnist_fun)
+get_mnist = paste(dirname(getwd()), 'utils', 'get_mnist.R', sep = '/')
+source(get_mnist)
 
 # Define directory for the data.
 my_data_dir = paste(dirname(getwd()), 'data/', sep = '/')
@@ -18,8 +18,8 @@ get_mnist(my_data_dir)
 ########################################
 
 # Load the preprocessing function.
-preprocessing_fun = paste(dirname(getwd()), 'utils', 'to_categorical.R', sep = '/')
-source(preprocessing_fun)
+to_categorical = paste(dirname(getwd()), 'utils', 'to_categorical.R', sep = '/')
+source(to_categorical)
 
 # Create categorical labels for the train data.
 load(paste(my_data_dir, 'train.RData', sep = ''))
@@ -67,11 +67,11 @@ pool2 = mx.symbol.Pooling(data = act2, pool_type = 'max', kernel = c(2, 2), stri
 # A flatten layer.
 flatten = mx.symbol.Flatten(data = pool2)
 
-# The first dense layer has 32 units and relu activation.
+# The first dense layer has 8 units and relu activation.
 fc1 = mx.symbol.FullyConnected(data = flatten, num_hidden = 8)
 act4 = mx.symbol.Activation(data = fc1, act_type = 'relu')
 
-# The secomd dense layer has 64 units and relu activation.
+# The secomd dense layer has 16 units and relu activation.
 fc2 = mx.symbol.FullyConnected(data = act4, num_hidden = 16)
 act5 = mx.symbol.Activation(data = fc2, act_type = 'relu')
 
@@ -126,9 +126,9 @@ results[2] = as.numeric(lapply(logger$eval, function(x) 1 - x))
 colnames(results)[2] = paste('Test')  
   
 # Load and call the visualization function.
-get_vis_fun = paste(dirname(getwd()), 'utils', 'vis_results.R', sep = '/')
-source(get_vis_fun)
+vis_results = paste(dirname(getwd()), 'utils', 'vis_results.R', sep = '/')
+source(vis_results)
 vis_results(my_training_results = results, 
             custom_string = 'Misclassification rate', 
-            my_ylim =  0.4)
+            my_ylim = 0.4)
 
