@@ -52,19 +52,19 @@ logger = mx.metric.logger$new()
 ########################################
 
 # Create the model's input layer.
-data = mx.symbol.Variable('data')
+input = mx.symbol.Variable('data')
 
 # The first layer has 32 units and relu activation.
-fc1 = mx.symbol.FullyConnected(data, name = 'fc1', num_hidden = 32)
-act1 = mx.symbol.Activation(fc1, name = 'relu1', act_type = 'relu')
+fc1 = mx.symbol.FullyConnected(data = input, name = 'fc1', num_hidden = 16)
+act1 = mx.symbol.Activation(data = fc1, name = 'relu1', act_type = 'relu')
 
 # The second layer has 64 units and relu activation.
-fc2 = mx.symbol.FullyConnected(act1, name = 'fc3', num_hidden = 64)
-act2 = mx.symbol.Activation(fc2, name = 'relu3', act_type = 'relu')
+fc2 = mx.symbol.FullyConnected(data = act1, name = 'fc3', num_hidden = 32)
+act2 = mx.symbol.Activation(data = fc2, name = 'relu3', act_type = 'relu')
 
 # The output layer has 10 units and softmax activation.
-fc3 = mx.symbol.FullyConnected(act2, name = 'fc4', num_hidden = 10)
-softmax = mx.symbol.SoftmaxOutput(fc3, name = 'sm')
+fc3 = mx.symbol.FullyConnected(data = act2, name = 'fc4', num_hidden = 10)
+softmax = mx.symbol.SoftmaxOutput(data = fc3, name = 'sm')
 
 
 ########################################

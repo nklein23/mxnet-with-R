@@ -52,10 +52,10 @@ logger = mx.metric.logger$new()
 ########################################
 
 # Create the model's input layer.
-data = mx.symbol.Variable('data')
+input = mx.symbol.Variable('data')
 
 # The first convolutional layer uses 3x3 filters, relu activation and max pooling.
-conv1 = mx.symbol.Convolution(data = data, kernel = c(3, 3), num_filter = 16)
+conv1 = mx.symbol.Convolution(data = input, kernel = c(3, 3), num_filter = 16)
 act1 = mx.symbol.Activation(data = conv1, act_type = 'relu')
 pool1 = mx.symbol.Pooling(data = act1, pool_type = 'max', kernel = c(2, 2), stride = c(2, 2))
 
@@ -68,11 +68,11 @@ pool2 = mx.symbol.Pooling(data = act2, pool_type = 'max', kernel = c(2, 2), stri
 flatten = mx.symbol.Flatten(data = pool2)
 
 # The first dense layer has 32 units and relu activation.
-fc1 = mx.symbol.FullyConnected(data = flatten, num_hidden = 32)
+fc1 = mx.symbol.FullyConnected(data = flatten, num_hidden = 8)
 act4 = mx.symbol.Activation(data = fc1, act_type = 'relu')
 
 # The secomd dense layer has 64 units and relu activation.
-fc2 = mx.symbol.FullyConnected(data = act4, num_hidden = 64)
+fc2 = mx.symbol.FullyConnected(data = act4, num_hidden = 16)
 act5 = mx.symbol.Activation(data = fc2, act_type = 'relu')
 
 # The output layer has 10 units and softmax activation.
@@ -130,5 +130,5 @@ get_vis_fun = paste(dirname(getwd()), 'utils', 'vis_results.R', sep = '/')
 source(get_vis_fun)
 vis_results(my_training_results = results, 
             custom_string = 'Misclassification rate', 
-            my_ylim =  0.175)
+            my_ylim =  0.4)
 

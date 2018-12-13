@@ -65,18 +65,18 @@ logger = mx.metric.logger$new()
 ########################################
 
 # Create the model's input layer.
-data = mx.symbol.Variable('data')
+input = mx.symbol.Variable('data')
 
 # The encoder has 64 neurons.
-encoder = mx.symbol.FullyConnected(data, num_hidden = 64)
-act1 = mx.symbol.Activation(encoder, act_type = 'relu')
+encoder = mx.symbol.FullyConnected(data = input, num_hidden = 64)
+act1 = mx.symbol.Activation(data = encoder, act_type = 'relu')
 
 # Since pixels are normalized, we use a sigmoid to squash the values to [0, 1].
-decoder = mx.symbol.FullyConnected(act1, num_hidden = 784)
-act2 = mx.symbol.Activation(decoder, act_type = 'sigmoid')
+decoder = mx.symbol.FullyConnected(data = act1, num_hidden = 784)
+act2 = mx.symbol.Activation(data = decoder, act_type = 'sigmoid')
 
 # We would like to minimize the MSE.
-output = mx.symbol.LinearRegressionOutput(act2)
+output = mx.symbol.LinearRegressionOutput(data = act2)
 
 
 ########################################
