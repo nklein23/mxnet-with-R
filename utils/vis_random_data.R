@@ -11,7 +11,7 @@ vis_random_data = function(my_data, num_plots, my_seed) {
   ##   |num_plots| plots.
   ##
   ## Example:
-  ##   vis_random_data(my_data, 81)
+  ##   vis_random_data(my_data, 81, 1)
   
   # Set the seed. 
   set.seed(my_seed)

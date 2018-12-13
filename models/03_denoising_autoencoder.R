@@ -18,7 +18,7 @@ get_mnist(my_data_dir)
 ########################################
 
 # Load the preprocessing function.
-preprocessing_fun = paste(dirname(getwd()), 'utils', 'preprocessing.R', sep = '/')
+preprocessing_fun = paste(dirname(getwd()), 'utils', 'to_categorical.R', sep = '/')
 source(preprocessing_fun)
 
 # Create categorical labels for the train data.
@@ -31,7 +31,7 @@ load(paste(my_data_dir, 'test.RData', sep = ''))
 rm(list = c('trainLabels', 'testLabels'))
 
 # Plot a few images from the test data.
-vis_fun = paste(dirname(getwd()), 'utils', 'visualize_data.R', sep = '/')
+vis_fun = paste(dirname(getwd()), 'utils', 'vis_random_data.R', sep = '/')
 source(vis_fun)
 vis_random_data(testData, 4, my_seed = 1337)
 

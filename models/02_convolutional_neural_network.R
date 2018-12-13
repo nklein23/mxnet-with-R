@@ -18,7 +18,7 @@ get_mnist(my_data_dir)
 ########################################
 
 # Load the preprocessing function.
-preprocessing_fun = paste(dirname(getwd()), 'utils', 'preprocessing.R', sep = '/')
+preprocessing_fun = paste(dirname(getwd()), 'utils', 'to_categorical.R', sep = '/')
 source(preprocessing_fun)
 
 # Create categorical labels for the train data.
@@ -120,15 +120,15 @@ model = mx.model.FeedForward.create(softmax,
 
 # Extract the training results.
 results[1] = as.numeric(lapply(logger$train, function(x) 1 - x))
-colnames(results)[1] = paste("Train")
+colnames(results)[1] = paste('Train')
 
 results[2] = as.numeric(lapply(logger$eval, function(x) 1 - x))
-colnames(results)[2] = paste("Test")  
+colnames(results)[2] = paste('Test')  
   
 # Load and call the visualization function.
-get_vis_fun = paste(dirname(getwd()), 'utils', 'visualize_results.R', sep = '/')
+get_vis_fun = paste(dirname(getwd()), 'utils', 'vis_results.R', sep = '/')
 source(get_vis_fun)
-visualize_results(my_training_results = results, 
-                  custom_string = 'Misclassification rate', 
-                  my_ylim =  0.175)
+vis_results(my_training_results = results, 
+            custom_string = 'Misclassification rate', 
+            my_ylim =  0.175)
 

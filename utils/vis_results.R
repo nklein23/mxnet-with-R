@@ -1,4 +1,4 @@
-visualize_results = function(my_training_results, custom_string, my_ylim) {
+vis_results = function(my_training_results, custom_string, my_ylim) {
   
   ## A function to visualize the misclassification rate or the classification accuracy.
   ##  
