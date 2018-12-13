@@ -54,11 +54,11 @@ logger = mx.metric.logger$new()
 # Create the model's input layer.
 input = mx.symbol.Variable('data')
 
-# The first layer has 32 units and relu activation.
+# The first layer has 16 units and relu activation.
 fc1 = mx.symbol.FullyConnected(data = input, name = 'fc1', num_hidden = 16)
 act1 = mx.symbol.Activation(data = fc1, name = 'relu1', act_type = 'relu')
 
-# The second layer has 64 units and relu activation.
+# The second layer has 32 units and relu activation.
 fc2 = mx.symbol.FullyConnected(data = act1, name = 'fc3', num_hidden = 32)
 act2 = mx.symbol.Activation(data = fc2, name = 'relu3', act_type = 'relu')
 
