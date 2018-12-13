@@ -2,7 +2,7 @@
 
 The purpose of this repository is to provide an easy access to the R interface of MXNet. 
 
-## I. Dependencies:
+## Dependencies:
 
 * mxnet (cpu or gpu)
 * devtools
@@ -10,8 +10,8 @@ The purpose of this repository is to provide an easy access to the R interface o
 * ggplot2
 * reshape2
 
-## II. To use the code:
+## To use the code:
 
-* optionally: run requirements.R, it will install missing dependencies from I. (only those who are missing)
+* optionally: run requirements.R, it will install missing dependencies.
 * run any file from models/
 
