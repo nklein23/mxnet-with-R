@@ -12,6 +12,6 @@ The purpose of this repository is to provide an easy access to the R interface o
 
 ## II. To use the code:
 
-* optionally: run requirements.R, it will install missing dependencies from I (only those who are missing)
+* optionally: run requirements.R, it will install missing dependencies from I. (only those who are missing)
 * run any file from models/
 
