@@ -1,4 +1,4 @@
-get_mnist = function(my_data_dir) {
+get_data_mnist = function(my_data_dir) {
   
   ## A function to download the original MNIST data from http://yann.lecun.com/exdb/mnist/.
   ## It converts it to .RData files and deletes the compressed archives.
@@ -13,22 +13,20 @@ get_mnist = function(my_data_dir) {
   ##   get_mnist('my_data_folder/')
   
   # Check if the data is incomplete or does not exist.
-  if (!file.exists(paste(my_data_dir, 'train.RData', sep = '')) |
-      !file.exists(paste(my_data_dir, 'test.RData', sep = ''))) {
-    
-    # Clear the folder.
-    unlink(paste(my_data_dir, '*', sep = ''))
+  
+  if (!file.exists(file.path(my_data_dir, 'train.RData')) |
+      !file.exists(file.path(my_data_dir, 'testn.RData'))) {
     
     # Download the actual MNIST data.
     require('darch')
     print('Downloading MNIST..')
-    darch::provideMNIST(folder = my_data_dir, download = TRUE)
+    suppressWarnings(provideMNIST(folder = paste0(my_data_dir, '/'), download = TRUE))
     
     # Delete unnecessary compressed files.
-    file.remove(list = c(paste(my_data_dir, 'train-images-idx3-ubyte.gz', sep = ''), 
-                         paste(my_data_dir, 'train-labels-idx1-ubyte.gz', sep = ''),
-                         paste(my_data_dir, 't10k-images-idx3-ubyte.gz', sep = ''),
-                         paste(my_data_dir, 't10k-labels-idx1-ubyte.gz', sep = '')))
+    invisible(file.remove(list = c(file.path(my_data_dir, 'train-images-idx3-ubyte.gz'),
+                                   file.path(my_data_dir, 'train-labels-idx1-ubyte.gz'),
+                                   file.path(my_data_dir, 't10k-images-idx3-ubyte.gz'),
+                                   file.path(my_data_dir, 't10k-labels-idx1-ubyte.gz'))))
     
   } else {
     

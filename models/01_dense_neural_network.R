@@ -3,14 +3,14 @@
 ########################################
 
 # Load the get_mnist function.
-get_mnist = paste(dirname(getwd()), 'utils', 'get_mnist.R', sep = '/')
-source(get_mnist)
+get_data_mnist = file.path(dirname(getwd()), 'utils', 'get_data_mnist.R')
+source(get_data_mnist)
 
 # Define directory for the data.
-my_data_dir = paste(dirname(getwd()), 'data/', sep = '/')
+my_data_dir = file.path(dirname(getwd()), 'data')
 
 # Download MNIST.
-get_mnist(my_data_dir)
+get_data_mnist(my_data_dir)
 
 
 ########################################
@@ -18,15 +18,15 @@ get_mnist(my_data_dir)
 ########################################
 
 # Load the preprocessing function.
-to_categorical = paste(dirname(getwd()), 'utils', 'to_categorical.R', sep = '/')
+to_categorical = file.path(dirname(getwd()), 'utils', 'to_categorical.R')
 source(to_categorical)
 
 # Create categorical labels for the train data.
-load(paste(my_data_dir, 'train.RData', sep = ''))
+load(file.path(my_data_dir, 'train.RData'))
 trainLabels = apply(trainLabels, 1, function(x) to_categorical(x))
 
 # Create categorical labels for the test data.
-load(paste(my_data_dir, 'test.RData', sep = ''))
+load(file.path(my_data_dir, 'test.RData'))
 testLabels = apply(testLabels, 1, function(x) to_categorical(x))
 
 
@@ -111,7 +111,7 @@ results[2] = as.numeric(lapply(logger$eval, function(x) 1 - x))
 colnames(results)[2] = paste('Test')  
   
 # Load and call the visualization function.
-vis_results = paste(dirname(getwd()), 'utils', 'vis_results.R', sep = '/')
+vis_results = file.path(dirname(getwd()), 'utils', 'vis_results.R')
 source(vis_results)
 vis_results(my_training_results = results, 
             custom_string = 'Misclassification rate', 

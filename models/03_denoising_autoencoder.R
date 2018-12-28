@@ -3,36 +3,36 @@
 ########################################
 
 # Load the get_mnist function.
-get_mnist_fun = paste(dirname(getwd()), 'utils', 'get_mnist.R', sep = '/')
-source(get_mnist_fun)
+get_data_mnist = file.path(dirname(getwd()), 'utils', 'get_data_mnist.R')
+source(get_data_mnist)
 
 # Define directory for the data.
-my_data_dir = paste(dirname(getwd()), 'data/', sep = '/')
+my_data_dir = file.path(dirname(getwd()), 'data')
 
 # Download MNIST.
-get_mnist(my_data_dir)
+get_data_mnist(my_data_dir)
 
 
 ########################################
 #### Load and noise the input data #####
 ########################################
 
-# Create categorical labels for the train data.
-load(paste(my_data_dir, 'train.RData', sep = ''))
+# Load the train data.
+load(file.path(my_data_dir, 'train.RData'))
 
-# Create categorical labels for the test data.
-load(paste(my_data_dir, 'test.RData', sep = ''))
+# Load the test data.
+load(file.path(my_data_dir, 'test.RData'))
 
 # Since they are of no use, delete the labels
 rm(list = c('trainLabels', 'testLabels'))
 
 # Plot a few images from the test data.
-vis_random_data = paste(dirname(getwd()), 'utils', 'vis_random_data.R', sep = '/')
+vis_random_data = file.path(dirname(getwd()), 'utils', 'vis_random_data.R')
 source(vis_random_data)
 vis_random_data(testData, 16, my_seed = 1)
 
 # Put some noise on the train and test data and plot it again
-noise_fun = paste(dirname(getwd()), 'utils', 'noise_data.R', sep = '/')
+noise_fun = file.path(dirname(getwd()), 'utils', 'noise_data.R')
 source(noise_fun)
 noised_train_data = noise_data(trainData, 0.5)
 noised_test_data = noise_data(testData, 0.5)
